@@ -47,8 +47,9 @@
   .gintro { height: 190vh; }
   .gintro__stick { top: 64px; height: calc(100vh - 64px); }
   .gintro__img { width: 82vw; height: auto; aspect-ratio: 3 / 4; }
-  .gintro__l { left: 16px; top: 22%; font-size: 64px; }
-  .gintro__r { right: 16px; top: 62%; font-size: 84px; }
+  /* телефон: обе строки по центру и в пределах фото, ничего не торчит и не обрезается */
+  .gintro__l { left: 0; right: 0; top: 26%; text-align: center; font-size: 52px; -webkit-text-stroke-width: 2.5px; }
+  .gintro__r { left: 0; right: 0; top: 62%; text-align: center; font-size: 70px; padding: 0 12px; -webkit-text-stroke-width: 3px; }
   .ga { grid-template-columns: 1fr; row-gap: 0; }
   .ga__m { grid-template-columns: 1fr; }
   .ga__m figure + figure { border-left: 0; border-top: var(--frame); }
