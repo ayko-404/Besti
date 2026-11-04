@@ -1,7 +1,7 @@
 /* (05) Руки после бэсти и (06) Что пишут гостьи — как в первой версии. Без скруглений (кроме аватаров). */
 
 /* работы: веер карточек */
-.pile { position: relative; height: 470px; margin-top: 32px; touch-action: pan-y; user-select: none; -webkit-user-select: none; overflow: hidden; }
+.pile { position: relative; height: 470px; margin-top: 32px; touch-action: pan-y; user-select: none; -webkit-user-select: none; overflow: visible; }
 .pc { position: absolute; left: 50%; top: 8px; width: 300px; margin-left: -150px; padding: 8px 8px 12px; background: #FFFFFF; color: var(--ink); border: var(--frame); text-align: left; font-family: var(--mono); cursor: pointer; transition: transform .6s cubic-bezier(.2, .8, .2, 1), opacity .45s ease, box-shadow .45s ease; }
 .pc__ph { display: block; aspect-ratio: 3 / 4; overflow: hidden; }
 .pc__ph img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
@@ -93,3 +93,6 @@
 .rva__stick h2 { position: static; }
 .rva__stick .hd-ico { position: relative; top: -22px; right: auto; display: inline-block; vertical-align: top; width: 64px; height: auto; margin: 0 0 0 6px; }
 @media (max-width: 900px) { .rva__stick .hd-ico { right: auto; top: -14px; width: 48px; } }
+
+/* веер работ: карточки уходят за край экрана, а не обрезаются рамкой блока */
+#works { overflow-x: clip; }

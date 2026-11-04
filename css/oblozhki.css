@@ -56,7 +56,7 @@
   .vf__lead { margin-top: 12px; font-size: var(--t-s); line-height: 1.5; }
   .vf__btns { gap: 10px; }
   .vf__btns .btn { min-height: 46px; font-size: var(--t-s); }
-  .cert { width: 236px; margin: 0 0 18px; cursor: default; }
+  .cert { width: 236px; margin: 0 0 clamp(18px, calc(100svh - 700px), 140px); cursor: default; } /* на высоких экранах купон выше, на низких — не налезает на заголовок */
   .kp { --stub: 76px; }
   .kp__main { padding: 10px 12px 12px; }
   .kp__lbl { font-size: 9px; }
