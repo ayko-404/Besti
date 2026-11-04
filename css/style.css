@@ -191,7 +191,7 @@ a, a *, button, button * { cursor: url('../assets/ui/cursor-nail-sm-hover.png') 
 .ft__big { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); height: auto; padding: 0; overflow: hidden; } /* разделители ячеек сплошные — от линии до низа подвала */
 .ft__big > span { display: flex; justify-content: center; align-items: flex-end; padding: 28px 0 14px; border-left: 1px solid rgba(255, 250, 246, .25); }
 .ft__big > span:first-child { border-left: 0; }
-.ft__big b { font-weight: 400; font-size: 220px; line-height: 1; color: transparent; background: repeating-linear-gradient(to bottom, var(--cream) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.ft__big b { font-weight: 400; font-size: 220px; line-height: .74; color: transparent; background: repeating-linear-gradient(to bottom, var(--cream) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
 .ft__big > span:hover b { transform: translateY(-10px); background: repeating-linear-gradient(to bottom, var(--pink) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; }
 @media (prefers-reduced-motion: reduce) { .ft::before, .ft::after, .ft__runrow { animation: none; } }
 @media (max-width: 900px) {
