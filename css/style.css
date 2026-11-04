@@ -174,35 +174,32 @@ a, a *, button, button * { cursor: url('../assets/ui/cursor-nail-sm-hover.png') 
 .ft::after { content: ""; position: absolute; left: 0; right: 0; top: -30%; height: 30%; z-index: 2; pointer-events: none; background: linear-gradient(to bottom, transparent, rgba(255, 172, 228, .07), transparent); animation: crtroll 7s linear infinite; }
 @keyframes crtflick { 0%, 100% { opacity: 1; } 47% { opacity: .7; } }
 @keyframes crtroll { to { top: 100%; } }
-/* подвал — один в один как в первой версии (решение Дмитрия 04.11) */
-.ft__cols { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 8px; row-gap: 32px; padding: 64px 16px 56px; }
-.ft__brand { grid-column: 1 / span 3; }
-.ft__brand img { display: block; height: 52px; width: auto; }
-.ft__brand p { margin: 18px 0 0; max-width: 300px; font-size: 17px; line-height: 1.5; color: rgba(255, 250, 246, .9); }
-.ft__col { display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.45; }
-.ft__col:nth-child(2) { grid-column: 4 / span 3; }
-.ft__col:nth-child(3) { grid-column: 7 / span 3; }
-.ft__col--req { grid-column: 10 / span 3; gap: 10px; }
+.ft__cols { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 8px; row-gap: 28px; padding: 48px 16px 40px; }
+.ft__brand { grid-column: 2 / span 3; } /* подвал на сетке сайта: кол. 2 · 5 · 8 (линия текстов) · 10 */
+.ft__brand img { display: block; height: 40px; width: auto; }
+.ft__brand p { margin: 14px 0 0; max-width: 280px; font-size: var(--t-m); line-height: 1.5; color: rgba(255, 250, 246, .9); }
+.ft__col { display: flex; flex-direction: column; gap: 8px; font-size: var(--t-m); line-height: 1.45; }
+.ft__col:nth-child(2) { grid-column: 5 / span 3; }
+.ft__col:nth-child(3) { grid-column: 8 / span 2; }
+.ft__col--req { grid-column: 10 / span 3; gap: 10px; padding-right: 8px; }
 .ft__col a { color: var(--cream); }
-.ft__lbl { margin: 0 0 4px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--pink); }
-.ft__note { margin-top: 2px; font-size: 13px; line-height: 1.4; color: rgba(255, 250, 246, .78); }
-.ft__col .wait { font-size: 12px; }
+.ft__lbl { margin: 0 0 4px; font-size: var(--t-xs); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--pink); }
 .ft__run { position: relative; z-index: 1; overflow: hidden; border-top: 1px solid rgba(255, 250, 246, .25); border-bottom: 1px solid rgba(255, 250, 246, .25); }
-.ft__runrow { display: flex; width: max-content; padding: 14px 0; font-size: 14px; letter-spacing: .04em; white-space: nowrap; animation: marq 45s linear infinite; }
+.ft__runrow { display: flex; width: max-content; padding: 11px 0; font-size: var(--t-s); letter-spacing: var(--ls-caps); white-space: nowrap; animation: marq 45s linear infinite; }
 .ft__seg { display: flex; gap: 28px; padding-right: 28px; }
 .ft__seg i { font-style: normal; color: var(--pink); }
-.ft__big { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); height: 250px; overflow: hidden; }
-.ft__big > span { display: flex; justify-content: center; align-items: flex-start; padding-top: 30px; border-left: 1px solid rgba(255, 250, 246, .25); }
+.ft__big { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); height: auto; padding: 0; overflow: hidden; } /* разделители ячеек сплошные — от линии до низа подвала */
+.ft__big > span { display: flex; justify-content: center; align-items: center; padding: 28px 0 36px; border-left: 1px solid rgba(255, 250, 246, .25); }
 .ft__big > span:first-child { border-left: 0; }
-.ft__big b { font-weight: 400; font-size: 300px; line-height: .8; color: transparent; background: repeating-linear-gradient(to bottom, var(--cream) 0 6px, transparent 6px 10px); -webkit-background-clip: text; background-clip: text; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
-.ft__big > span:hover b { transform: translateY(-14px); background: repeating-linear-gradient(to bottom, var(--pink) 0 6px, transparent 6px 10px); -webkit-background-clip: text; background-clip: text; }
+.ft__big b { font-weight: 400; font-size: 160px; line-height: 1; color: transparent; background: repeating-linear-gradient(to bottom, var(--cream) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.ft__big > span:hover b { transform: translateY(-10px); background: repeating-linear-gradient(to bottom, var(--pink) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; }
 @media (prefers-reduced-motion: reduce) { .ft::before, .ft::after, .ft__runrow { animation: none; } }
 @media (max-width: 900px) {
   .ft__cols { grid-template-columns: 1fr; }
   .ft__brand, .ft__col, .ft__col:nth-child(2), .ft__col:nth-child(3), .ft__col--req { grid-column: 1; }
-  .ft__big { height: 130px; }
-  .ft__big > span { padding-top: 16px; }
-  .ft__big b { font-size: 120px; background: repeating-linear-gradient(to bottom, var(--cream) 0 3px, transparent 3px 5px); -webkit-background-clip: text; background-clip: text; }
+  .ft__big { padding: 0; }
+  .ft__big > span { padding: 16px 0 24px; }
+  .ft__big b { font-size: 64px; background: repeating-linear-gradient(to bottom, var(--cream) 0 3px, transparent 3px 5px); -webkit-background-clip: text; background-clip: text; }
 }
 
 /* ── (07) как дойти: карта как у MECCA — чёрно-белая, во всю ширину экрана; карточка студии поверх, на колонках 2–5 (метка-мальтипу справа на карте) ── */
@@ -233,7 +230,7 @@ a, a *, button, button * { cursor: url('../assets/ui/cursor-nail-sm-hover.png') 
 .ft-steps i:nth-child(4) { height: 10px; background: #8F2E2A; }
 .ft-steps i:nth-child(5) { height: 14px; background: #7A2018; }
 .route2 { border-bottom: 0; }
-@media (max-width: 900px) { .ft__brand p, .ft__col { font-size: 15px; } }
+@media (max-width: 900px) { .ft__brand p, .ft__col { font-size: var(--t-m); } }
 
 /* ── карточка на карте: варианты (0 сейчас · A окно · B билет · C полоса снизу) ── */
 .rk { position: absolute; z-index: 3; }
