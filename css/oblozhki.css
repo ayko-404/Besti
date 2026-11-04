@@ -49,19 +49,24 @@
   .vf__btns { grid-column: 9 / span 3; }
 }
 @media (max-width: 900px) {
-  .vf { height: auto; min-height: 0; max-height: none; }
-  .vf__band { position: relative; left: auto; right: auto; bottom: auto; grid-template-columns: 1fr; row-gap: 24px; padding: 150px 16px 32px; }
-  .vf__brand, .vf__btns { grid-column: 1; }
-  .vf__brand h1 { font-size: 34px; }
-  .cert { width: 300px; margin: 0 0 36px 24px; }
-  .kp { --stub: 92px; }
-  .kp__main { padding: 12px 12px 14px; }
-  .kp__price span:first-child { font-size: 30px; }
-  .kp__list { grid-template-columns: 1fr; font-size: var(--t-xs); }
-  .kp__pct { font-size: var(--t-h3); }
-  .kp__stub { padding: 12px 6px 10px; }
-  .vf__brand, .vf__btns { grid-row: auto; }
-  .kp__star { display: none; }
+  /* телефон: обложка ровно в экран под шапкой, всё содержимое прижато к низу; купон компактный и не перетаскивается */
+  .vf { height: calc(100svh - 64px); min-height: 560px; max-height: none; }
+  .vf__band { position: absolute; left: 0; right: 0; bottom: 20px; grid-template-columns: 1fr; row-gap: 18px; padding: 0 16px; }
+  .vf__brand, .vf__btns { grid-column: 1; grid-row: auto; }
+  .vf__lead { margin-top: 12px; font-size: var(--t-s); line-height: 1.5; }
+  .vf__btns { gap: 10px; }
+  .vf__btns .btn { min-height: 46px; font-size: var(--t-s); }
+  .cert { width: 236px; margin: 0 0 18px; cursor: default; }
+  .kp { --stub: 76px; }
+  .kp__main { padding: 10px 12px 12px; }
+  .kp__lbl { font-size: 9px; }
+  .kp__price span:first-child { font-size: 26px; }
+  .kp__price s { font-size: 12px; }
+  .kp__list, .kp__for, .kp__bar, .kp__s3, .kp__star { display: none; }
+  .kp__btn { min-height: 32px; margin-top: 8px; padding: 0 12px; font-size: 10px; }
+  .kp__stub { padding: 10px 6px; gap: 2px; }
+  .kp__pct { font-size: 22px; }
+}
 }
 
 /* заголовок обложки (из первой версии): «Маникюр и педикюр» PT Mono + «в гостях у бэсти» рукописным Gogol розовым */
@@ -69,8 +74,8 @@
 .ttl__big { display: block; font-size: var(--t-h1); line-height: .95; letter-spacing: -.02em; }
 .ttl__hand { display: block; margin-top: 14px; font-family: var(--hand); font-size: var(--t-h1); line-height: 1.05; color: var(--pink); text-transform: none; letter-spacing: 0; transform: rotate(-3deg); transform-origin: left; }
 @media (max-width: 900px) {
-  .ttl__big { font-size: 40px; }
-  .ttl__hand { font-size: 40px; }
+  .ttl__big { font-size: 34px; }
+  .ttl__hand { margin-top: 6px; font-size: 34px; }
 }
 
 /* лёгкая анимация купона: медленно покачивается вверх-вниз; при перетаскивании и у тех, кто отключил анимацию, стоит на месте */

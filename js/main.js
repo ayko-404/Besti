@@ -10,7 +10,7 @@
   mob.addEventListener('click', (e) => { if (e.target.closest('a, [data-close]')) setMenu(false); });
 
   // купон на обложке: перетаскивается в пределах обложки.
-  // Мышью — за любое место, пальцем — за корешок купона (иначе мешало бы листать страницу).
+  // Только мышью на компьютере; на телефоне купон стоит на месте (иначе мешало бы листать страницу).
   const cert = document.querySelector('.cert');
   if (cert) {
     const box = cert.closest('.vb');
@@ -30,7 +30,7 @@
     let dx = 0, dy = 0;
     cert.addEventListener('pointerdown', (e) => {
       if (e.button !== 0 || e.target.closest('button, a')) return;
-      if (e.pointerType !== 'mouse' && !e.target.closest('.cert__grip')) return;
+      if (innerWidth <= 900 || e.pointerType !== 'mouse') return; // на телефоне и планшете купон не перетаскивается
       float();
       dx = e.clientX - cert.offsetLeft; dy = e.clientY - cert.offsetTop;
       cert.classList.add('is-drag'); cert.setPointerCapture(e.pointerId); e.preventDefault();

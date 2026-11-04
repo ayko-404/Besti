@@ -44,3 +44,9 @@
   .hdc .brand { grid-column: 2; grid-row: 1; }
   .hdc .hdc__side--r { grid-column: 3; grid-row: 1; justify-self: end; margin: 0; }
 }
+/* телефон: «Меню» на подложке — такая же коробка, как кнопка «Записаться» справа, для равновесия */
+@media (max-width: 900px) {
+  .hdc .nav__burger { justify-content: center; width: 46px; min-height: 38px; padding: 0; background: #FFFFFF; color: var(--bordo); border: var(--frame); box-shadow: var(--sh-s); transition: transform .12s, box-shadow .12s; }
+  .hdc .nav__burger:active { transform: translate(3px, 3px); box-shadow: none; }
+  .hdc .nav__burger[aria-expanded="true"] { background: var(--pink); }
+}
