@@ -331,6 +331,7 @@ mask: radial-gradient(circle 10px at calc(100% - var(--stub)) 0, #0000 98%, #000
 .vid-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .vid-cover { opacity: 0; transition: opacity .6s ease; }
 .vid-cover.is-on { opacity: 1; }
+.cert.is-gone { visibility: hidden; pointer-events: none; animation: none; }
 .top { position: sticky; top: 0; z-index: 50; }
 .hd { position: relative; background: var(--cream); }
 .brand { display: inline-flex; flex-direction: column; align-items: center; flex: none; color: var(--bordo); text-decoration: none; }

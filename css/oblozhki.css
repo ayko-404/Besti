@@ -105,3 +105,4 @@
 .vid-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .vid-cover { opacity: 0; transition: opacity .6s ease; }
 .vid-cover.is-on { opacity: 1; }
+.cert.is-gone { visibility: hidden; pointer-events: none; animation: none; }

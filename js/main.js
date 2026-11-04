@@ -17,7 +17,7 @@
     // телефон: купон всплывает и закрывается крестиком; после перезагрузки страницы появляется снова
     cert.querySelector('.kp__close').addEventListener('click', () => {
       cert.classList.add('is-closing');
-      setTimeout(() => { cert.hidden = true; }, 220);
+      setTimeout(() => { cert.classList.add('is-gone'); }, 220); // место купона остаётся — заголовок не прыгает
     });
     const clamp = (v, max) => Math.max(0, Math.min(v, max));
     const place = (x, y) => {
