@@ -16,7 +16,7 @@
 
 /* купон первого визита (как в первой версии): розовый билет, белый отрывной корешок с пунктиром, вырезы по линии отрыва.
    Рамка и жёсткая тень — фильтром, чтобы обводка шла и по вырезам. Перетаскивается (js/main.js): мышью за любое место, пальцем за корешок */
-.cert { position: relative; z-index: 4; width: 470px; max-width: 100%; margin: 0 0 clamp(24px, calc(100vh - 640px), 170px) 160px; /* чем выше экран, тем выше купон; под шапку не заезжает */ color: var(--ink); transform: rotate(-2deg); cursor: grab; transition: transform .15s;
+.cert { position: relative; z-index: 4; width: 500px; max-width: 100%; margin: 0 0 clamp(24px, calc(100vh - 640px), 170px) 160px; /* чем выше экран, тем выше купон; под шапку не заезжает */ color: var(--ink); transform: rotate(-2deg); cursor: grab; transition: transform .15s;
   filter: drop-shadow(1px 0 0 var(--ink)) drop-shadow(-1px 0 0 var(--ink)) drop-shadow(0 1px 0 var(--ink)) drop-shadow(0 -1px 0 var(--ink)) drop-shadow(7px 7px 0 var(--ink)); }
 .cert[hidden] { display: none; }
 .cert.is-float { position: absolute; margin: 0; }
@@ -27,6 +27,7 @@
           mask: radial-gradient(circle 10px at calc(100% - var(--stub)) 0, #0000 98%, #000) top / 100% 51% no-repeat, radial-gradient(circle 10px at calc(100% - var(--stub)) 100%, #0000 98%, #000) bottom / 100% 51% no-repeat; }
 .kp p { margin: 0; }
 .kp__main { padding: 16px 18px 18px; }
+.kp__set { margin-top: 2px !important; font-size: var(--t-xs); color: var(--ink); }
 .kp__lbl { font-size: var(--t-xs); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--bordo); }
 .kp__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-top: 6px !important; color: var(--bordo); }
 .kp__price span:first-child { font-size: var(--t-num); line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
@@ -57,17 +58,18 @@
   .vf__lead { margin-top: 12px; font-size: var(--t-s); line-height: 1.5; }
   .vf__btns { gap: 10px; }
   .vf__btns .btn { min-height: 46px; font-size: var(--t-s); }
-  .cert { width: 236px; margin: auto; cursor: default; } /* купон по центру — и по ширине, и в свободном месте над заголовком */
+  .cert { width: 268px; margin: auto; cursor: default; } /* купон по центру — и по ширине, и в свободном месте над заголовком */
   .vf__brand h1 { margin-top: 24px; }
-  .kp { --stub: 76px; }
+  .kp { --stub: 84px; }
   .kp__main { padding: 10px 12px 12px; }
-  .kp__lbl { font-size: 9px; }
-  .kp__price span:first-child { font-size: 26px; }
+  .kp__lbl { font-size: 10px; }
+  .kp__set { font-size: 10px; }
+  .kp__price span:first-child { font-size: 30px; }
   .kp__price s { font-size: 12px; }
   .kp__list, .kp__for, .kp__bar, .kp__s3, .kp__star { display: none; }
   .kp__btn { min-height: 32px; margin-top: 8px; padding: 0 12px; font-size: 10px; }
   .kp__stub { padding: 10px 6px; gap: 2px; }
-  .kp__pct { font-size: 22px; }
+  .kp__pct { font-size: 26px; }
 }
 }
 
@@ -98,3 +100,8 @@
 @keyframes kpPop { from { opacity: 0; transform: translateY(24px) scale(.9) rotate(-2deg); } to { opacity: 1; transform: rotate(-2deg); } }
 @keyframes kpOut { to { opacity: 0; transform: translateY(16px) scale(.92) rotate(-2deg); } }
 @media (prefers-reduced-motion: reduce) { .cert, .cert.is-closing { animation: none; } }
+
+/* обложка: картинка-постер сразу, видео поверх проявляется после старта */
+.vid-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.vid-cover { opacity: 0; transition: opacity .6s ease; }
+.vid-cover.is-on { opacity: 1; }

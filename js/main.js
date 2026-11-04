@@ -50,16 +50,17 @@
   const gi = document.querySelector('.gintro');
   if (gi && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const st = gi.querySelector('.gintro__stick');
-    let ticking = false;
+    let ticking = false, start = 0, run = 1;
+    const measure = () => { // размеры читаем только при изменении окна, не на каждый кадр прокрутки
+      run = (gi.offsetHeight - st.offsetHeight) * 0.65;
+      start = gi.getBoundingClientRect().top + scrollY - parseFloat(getComputedStyle(st).top);
+    };
     const upd = () => {
       ticking = false;
-      const run = gi.offsetHeight - st.offsetHeight;
-      const top = gi.getBoundingClientRect().top - parseFloat(getComputedStyle(st).top);
-      const p = Math.max(0, Math.min(1, -top / (run * 0.65)));
-      gi.style.setProperty('--p', p.toFixed(3));
+      gi.style.setProperty('--p', Math.max(0, Math.min(1, (scrollY - start) / run)).toFixed(3));
     };
     addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
-    addEventListener('resize', upd); upd();
+    addEventListener('resize', () => { measure(); upd(); }); addEventListener('load', () => { measure(); upd(); }); measure(); upd();
   }
 
   // «Руки после бэсти»: веер карточек как в первой версии — кнопки, свайп, средняя открывается на весь экран
@@ -79,7 +80,6 @@
         c.style.zIndex = 20 - a; c.style.opacity = a > far ? 0 : 1; c.style.pointerEvents = a > far ? 'none' : 'auto';
         c.style.boxShadow = d === 0 ? '8px 10px 0 rgba(43, 26, 23, .3)' : '4px 6px 0 rgba(43, 26, 23, .18)';
         c.classList.toggle('is-cur', d === 0);
-        c.setAttribute('aria-label', c.querySelector('img').alt + (d === 0 ? ' — открыть на весь экран' : ' — показать'));
       });
       num.textContent = cur + 1;
     };
@@ -196,6 +196,13 @@
   }
   list.addEventListener('click', (e) => { const b = e.target.closest('.prow'); if (b) { ri = +b.dataset.i; render(); } });
   render();
+
+  // обложка: ролик под размер экрана (телефон — вертикальный, компьютер — широкий); проявляется, когда начал играть
+  const cv = document.querySelector('.vid-cover');
+  if (cv) {
+    cv.src = matchMedia('(max-width: 900px)').matches ? cv.dataset.srcM : cv.dataset.srcD;
+    cv.addEventListener('playing', () => cv.classList.add('is-on'), { once: true });
+  }
 
   // видео: без звука, играют только рядом с экраном
   const vids = document.querySelectorAll('video');
