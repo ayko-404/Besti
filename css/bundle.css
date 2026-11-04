@@ -457,6 +457,8 @@ mask: radial-gradient(circle 10px at calc(100% - var(--stub)) 0, #0000 98%, #000
 .gintro__stick { top: 64px; height: calc(100vh - 64px); }
 .gintro__img { width: 82vw; height: auto; aspect-ratio: 3 / 4; }
 .gintro__l { left: 0; right: 0; top: 26%; text-align: center; font-size: 52px; -webkit-text-stroke-width: 2.5px; }
+.gintro__l { transform: translateX(calc((1 - var(--p)) * -110vw)); }
+.gintro__r { transform: translateX(calc((1 - var(--p)) * 110vw)) rotate(-4deg); }
 .gintro__r { left: 0; right: 0; top: 62%; text-align: center; font-size: 70px; padding: 0 12px; -webkit-text-stroke-width: 3px; }
 .ga { grid-template-columns: 1fr; row-gap: 0; }
 .ga__m { grid-template-columns: 1fr; }
