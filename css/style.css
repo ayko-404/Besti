@@ -189,17 +189,17 @@ a, a *, button, button * { cursor: url('../assets/ui/cursor-nail-sm-hover.png') 
 .ft__seg { display: flex; gap: 28px; padding-right: 28px; }
 .ft__seg i { font-style: normal; color: var(--pink); }
 .ft__big { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); height: auto; padding: 0; overflow: hidden; } /* разделители ячеек сплошные — от линии до низа подвала */
-.ft__big > span { display: flex; justify-content: center; align-items: center; padding: 28px 0 36px; border-left: 1px solid rgba(255, 250, 246, .25); }
+.ft__big > span { display: flex; justify-content: center; align-items: flex-end; padding: 28px 0 14px; border-left: 1px solid rgba(255, 250, 246, .25); }
 .ft__big > span:first-child { border-left: 0; }
-.ft__big b { font-weight: 400; font-size: 160px; line-height: 1; color: transparent; background: repeating-linear-gradient(to bottom, var(--cream) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
+.ft__big b { font-weight: 400; font-size: 220px; line-height: 1; color: transparent; background: repeating-linear-gradient(to bottom, var(--cream) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; transition: transform .35s cubic-bezier(.2, .8, .2, 1); }
 .ft__big > span:hover b { transform: translateY(-10px); background: repeating-linear-gradient(to bottom, var(--pink) 0 4px, transparent 4px 7px); -webkit-background-clip: text; background-clip: text; }
 @media (prefers-reduced-motion: reduce) { .ft::before, .ft::after, .ft__runrow { animation: none; } }
 @media (max-width: 900px) {
   .ft__cols { grid-template-columns: 1fr; }
   .ft__brand, .ft__col, .ft__col:nth-child(2), .ft__col:nth-child(3), .ft__col--req { grid-column: 1; }
   .ft__big { padding: 0; }
-  .ft__big > span { padding: 16px 0 24px; }
-  .ft__big b { font-size: 64px; background: repeating-linear-gradient(to bottom, var(--cream) 0 3px, transparent 3px 5px); -webkit-background-clip: text; background-clip: text; }
+  .ft__big > span { padding: 16px 0 8px; }
+  .ft__big b { font-size: 86px; background: repeating-linear-gradient(to bottom, var(--cream) 0 3px, transparent 3px 5px); -webkit-background-clip: text; background-clip: text; }
 }
 
 /* ── (07) как дойти: карта как у MECCA — чёрно-белая, во всю ширину экрана; карточка студии поверх, на колонках 2–5 (метка-мальтипу справа на карте) ── */
