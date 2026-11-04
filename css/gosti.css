@@ -7,8 +7,8 @@
 .gintro__img { height: min(74vh, 780px); width: auto; aspect-ratio: 3 / 4; object-fit: cover; border: var(--frame); } /* вертикальное фото гостьи (IMG_2052), без тени */
 .gintro__ttl { position: absolute; inset: 0; margin: 0; pointer-events: none; }
 .gintro__l, .gintro__r { position: absolute; white-space: nowrap; will-change: transform; }
-.gintro__l { left: calc(50% - min(27.75vh, 292px) - 12vw); top: 18%; font-size: clamp(56px, 9vw, 140px); line-height: 1; color: var(--pink); -webkit-text-stroke: 2px var(--bordo); paint-order: stroke fill; transform: translateX(calc((1 - var(--p)) * -75vw)); }
-.gintro__r { right: calc(50% - min(27.75vh, 292px) - 10vw); top: 56%; font-family: var(--hand); font-size: clamp(64px, 10vw, 160px); line-height: 1; color: var(--pink); text-transform: none; letter-spacing: 0; -webkit-text-stroke: 1.5px var(--bordo); transform: translateX(calc((1 - var(--p)) * 75vw)) rotate(-4deg); }
+.gintro__l { left: calc(50% - min(27.75vh, 292px) - 12vw); top: 18%; font-size: clamp(64px, 10.5vw, 168px); line-height: 1; color: var(--pink); -webkit-text-stroke: 3px var(--bordo); paint-order: stroke fill; transform: translateX(calc((1 - var(--p)) * -75vw)); }
+.gintro__r { right: calc(50% - min(27.75vh, 292px) - 10vw); top: 56%; font-family: var(--hand); font-size: clamp(76px, 12vw, 192px); line-height: 1; color: var(--pink); text-transform: none; letter-spacing: 0; -webkit-text-stroke: 4px var(--bordo); paint-order: stroke fill; transform: translateX(calc((1 - var(--p)) * 75vw)) rotate(-4deg); }
 
 .gosti__body { padding-top: 24px; }
 .label + .ga__h { margin-top: 10px; }
@@ -47,9 +47,12 @@
   .gintro { height: 190vh; }
   .gintro__stick { top: 64px; height: calc(100vh - 64px); }
   .gintro__img { width: 82vw; height: auto; aspect-ratio: 3 / 4; }
-  .gintro__l { left: 8px; top: 24%; font-size: 48px; }
-  .gintro__r { right: 8px; top: 60%; font-size: 64px; }
+  .gintro__l { left: 16px; top: 22%; font-size: 64px; }
+  .gintro__r { right: 16px; top: 62%; font-size: 84px; }
   .ga { grid-template-columns: 1fr; row-gap: 0; }
+  .ga__m { grid-template-columns: 1fr; }
+  .ga__m figure + figure { border-left: 0; border-top: var(--frame); }
+  .ga__m img, .ga__m video { aspect-ratio: 4 / 5; }
   .ga > * { grid-column: 1 !important; grid-row: auto !important; margin: 0 !important; transform: none !important; }
   .ga__t { padding: 28px 0 40px !important; }
 }
