@@ -83,3 +83,16 @@
 .cert .kp, .cert .kp__star { animation: kpFloat 5.5s ease-in-out infinite; }
 .cert.is-drag .kp, .cert.is-drag .kp__star { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .cert .kp, .cert .kp__star { animation: none; } }
+
+/* крестик купона — только на телефоне, где купон работает как всплывашка */
+.kp__close { display: none; }
+@media (max-width: 900px) {
+  .cert { animation: kpPop .5s cubic-bezier(.2, .9, .3, 1.3) .6s both; }
+  .cert .kp { animation: none; }
+  .cert.is-closing { animation: kpOut .22s ease-in both; }
+  .kp__close { position: absolute; z-index: 5; top: -12px; right: -12px; display: grid; place-items: center; width: 30px; height: 30px; padding: 0; background: #FFFFFF; color: var(--bordo); border: var(--frame); border-radius: 50%; box-shadow: 2px 2px 0 var(--ink); font-family: var(--mono); font-size: 18px; line-height: 1; cursor: pointer; }
+  .kp__close::after { content: ""; position: absolute; inset: -8px; } /* палец попадает с запасом */
+}
+@keyframes kpPop { from { opacity: 0; transform: translateY(24px) scale(.9) rotate(-2deg); } to { opacity: 1; transform: rotate(-2deg); } }
+@keyframes kpOut { to { opacity: 0; transform: translateY(16px) scale(.92) rotate(-2deg); } }
+@media (prefers-reduced-motion: reduce) { .cert, .cert.is-closing { animation: none; } }

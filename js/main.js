@@ -14,6 +14,14 @@
   const cert = document.querySelector('.cert');
   if (cert) {
     const box = cert.closest('.vb');
+    // телефон: купон всплывает и закрывается крестиком; закрытый не показываем до конца сеанса
+    const KEY = 'besti-kupon-closed';
+    try { if (sessionStorage.getItem(KEY) && innerWidth <= 900) cert.hidden = true; } catch (e) {}
+    cert.querySelector('.kp__close').addEventListener('click', () => {
+      cert.classList.add('is-closing');
+      setTimeout(() => { cert.hidden = true; }, 220);
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    });
     const clamp = (v, max) => Math.max(0, Math.min(v, max));
     const place = (x, y) => {
       cert.style.left = clamp(x, box.clientWidth - cert.offsetWidth) + 'px';
@@ -166,8 +174,8 @@
   cats.forEach((c, i) => {
     const b = document.createElement('button');
     b.className = 'tab'; b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'tab-' + c.id;
-    b.setAttribute('aria-controls', 'price-panel'); b.style.background = c.bg;
-    b.innerHTML = '<img src="' + c.icon + '" alt=""><span><i>(0' + (i + 1) + ')</i>' + esc(c.title) + '</span>';
+    b.setAttribute('aria-controls', 'price-panel'); b.style.background = c.bg; b.style.setProperty('--c', c.bg);
+    b.innerHTML = '<span class="tab__fold"><img src="' + c.icon + '" alt=""></span><span><i>(0' + (i + 1) + ')</i>' + esc(c.title) + '</span>';
     b.addEventListener('click', () => { ci = i; ri = 0; render(); });
     tabs.appendChild(b);
   });
