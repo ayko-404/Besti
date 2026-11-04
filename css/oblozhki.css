@@ -51,12 +51,14 @@
 @media (max-width: 900px) {
   /* телефон: обложка ровно в экран под шапкой, всё содержимое прижато к низу; купон компактный и не перетаскивается */
   .vf { height: calc(100svh - 64px); min-height: 560px; max-height: none; }
-  .vf__band { position: absolute; left: 0; right: 0; bottom: 20px; grid-template-columns: 1fr; row-gap: 18px; padding: 0 16px; }
+  .vf__band { position: absolute; left: 0; right: 0; top: 24px; bottom: 20px; grid-template-columns: 1fr; grid-template-rows: 1fr auto; row-gap: 18px; padding: 0 16px; }
+  .vf__brand { display: flex; flex-direction: column; align-self: stretch; }
   .vf__brand, .vf__btns { grid-column: 1; grid-row: auto; }
   .vf__lead { margin-top: 12px; font-size: var(--t-s); line-height: 1.5; }
   .vf__btns { gap: 10px; }
   .vf__btns .btn { min-height: 46px; font-size: var(--t-s); }
-  .cert { width: 236px; margin: 0 0 clamp(18px, calc(100svh - 700px), 140px); cursor: default; } /* на высоких экранах купон выше, на низких — не налезает на заголовок */
+  .cert { width: 236px; margin: auto; cursor: default; } /* купон по центру — и по ширине, и в свободном месте над заголовком */
+  .vf__brand h1 { margin-top: 24px; }
   .kp { --stub: 76px; }
   .kp__main { padding: 10px 12px 12px; }
   .kp__lbl { font-size: 9px; }

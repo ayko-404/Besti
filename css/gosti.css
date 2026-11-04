@@ -56,5 +56,5 @@
   .ga__m img, .ga__m video { aspect-ratio: 4 / 5; }
   .ga > * { grid-column: 1 !important; grid-row: auto !important; margin: 0 !important; transform: none !important; }
   .ga__t { padding: 28px 0 40px !important; }
-  .ga__t--4 .btn { margin-top: 28px !important; } /* на телефоне кнопка не прилипает к тексту */
+  .ga__t--4 .btn { margin-top: 44px !important; } /* на телефоне кнопка не прилипает к тексту */
 }
