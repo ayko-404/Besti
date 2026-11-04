@@ -14,13 +14,10 @@
   const cert = document.querySelector('.cert');
   if (cert) {
     const box = cert.closest('.vb');
-    // телефон: купон всплывает и закрывается крестиком; закрытый не показываем до конца сеанса
-    const KEY = 'besti-kupon-closed';
-    try { if (sessionStorage.getItem(KEY) && innerWidth <= 900) cert.hidden = true; } catch (e) {}
+    // телефон: купон всплывает и закрывается крестиком; после перезагрузки страницы появляется снова
     cert.querySelector('.kp__close').addEventListener('click', () => {
       cert.classList.add('is-closing');
       setTimeout(() => { cert.hidden = true; }, 220);
-      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
     });
     const clamp = (v, max) => Math.max(0, Math.min(v, max));
     const place = (x, y) => {
