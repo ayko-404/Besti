@@ -7,7 +7,7 @@
 .gintro__img { height: min(74vh, 780px); width: auto; aspect-ratio: 3 / 4; object-fit: cover; border: var(--frame); } /* вертикальное фото гостьи (IMG_2052), без тени */
 .gintro__ttl { position: absolute; inset: 0; margin: 0; pointer-events: none; }
 .gintro__l, .gintro__r { position: absolute; white-space: nowrap; will-change: transform; }
-.gintro__l { left: calc(50% - min(27.75vh, 292px) - 12vw); top: 18%; font-size: clamp(64px, 10.5vw, 168px); line-height: 1; color: var(--pink); -webkit-text-stroke: 3px var(--bordo); paint-order: stroke fill; transform: translateX(calc((1 - var(--p)) * -75vw)); }
+.gintro__l { left: calc(50% - min(27.75vh, 292px) - 12vw); top: 8%; font-size: clamp(64px, 10.5vw, 168px); line-height: 1; color: var(--pink); -webkit-text-stroke: 3px var(--bordo); paint-order: stroke fill; transform: translateX(calc((1 - var(--p)) * -75vw)); }
 .gintro__r { right: calc(50% - min(27.75vh, 292px) - 10vw); top: 56%; font-family: var(--hand); font-size: clamp(76px, 12vw, 192px); line-height: 1; color: var(--pink); text-transform: none; letter-spacing: 0; -webkit-text-stroke: 4px var(--bordo); paint-order: stroke fill; transform: translateX(calc((1 - var(--p)) * 75vw)) rotate(-4deg); }
 
 .gosti__body { padding-top: 24px; }
