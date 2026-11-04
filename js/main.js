@@ -75,7 +75,7 @@
         if (d > total / 2) d -= total;
         const a = Math.abs(d);
         c.style.transform = 'translateX(' + d * step() + 'px) translateY(' + a * 16 + 'px) rotate(' + (d === 0 ? 0 : jit[i % 8]) + 'deg) scale(' + (1 - Math.min(a, 3) * 0.08).toFixed(2) + ')';
-        const far = innerWidth > 900 ? 4 : 2; // на компьютере веер тянется до краёв экрана и уходит за них
+        const far = 2; // по две карточки с каждой стороны — как в первой версии
         c.style.zIndex = 20 - a; c.style.opacity = a > far ? 0 : 1; c.style.pointerEvents = a > far ? 'none' : 'auto';
         c.style.boxShadow = d === 0 ? '8px 10px 0 rgba(43, 26, 23, .3)' : '4px 6px 0 rgba(43, 26, 23, .18)';
         c.classList.toggle('is-cur', d === 0);
